@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int isAlpha(char symbol) {
+  int isUpper = (symbol >= 65 && symbol <= 90);
+  int isLower = (symbol >= 97 && symbol <= 122);
+  return isUpper || isLower; //Проверка по таблице ASCII
+}
+
+void reverseWord(char *mas, int zeroInd, int lastInd) {
+  int length = lastInd - zeroInd;
+  if (!length) return;
+  for (int i = 0; i < length / 2 + 1; i++) {
+    char secondary = mas[zeroInd + i];
+    mas[zeroInd + i] = mas[lastInd - i];
+    mas[lastInd - i] = secondary;
+  }
+}
+
+int main() {
+  char mas[40] = {'\0'};
+  scanf("%99[^\n]", mas);
+  int lengthMas = 0;
+  while (mas[lengthMas] != '\0') {
+    lengthMas++;
+  }
+  int lastIndex = 0;
+  for (int i = 0; i < lengthMas; i++){
+    if (!isAlpha(mas[i]) || i == lengthMas - 1) {
+     if (isAlpha(mas[i]) && i == lengthMas - 1) {
+       i++;
+     }
+     reverseWord(mas, lastIndex, i - 1);
+     lastIndex = i + 1;
+    }
+  }
+  printf("%s\n", mas);
+  return 0;
+}
+
+
+
+
+
