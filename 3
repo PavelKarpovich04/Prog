@@ -1,0 +1,23 @@
+include <stdio.h>
+void powEr(int m){
+  printf("%s", "P2 \n");
+  int st = m;
+  int st1 = m * m;
+  st = st1 * st1;
+  st = st * st;
+  st = st * st1;
+  printf("%d", st);
+}
+int main(){
+  printf("%s", "P1 \n");
+  int a, b, s;
+  scanf("%d", &a);
+  scanf("%d", &b);
+  scanf("%d", &s);
+  int h = s / (2 * (a + b));
+  printf("%d", h);
+  printf("%s", "\n");
+  int m;
+  scanf("%d", &m);
+  powEr(m);
+}
